@@ -225,10 +225,10 @@ var saveTasks = function () {
 // Converts tasks from the string format back into an array of objects
 // Iterates through a tasks array and creates task elemetns on the page from it
 var loadTasks = function () {
-  tasks = localStorage.getItem('tasks');
+ var savedTasks = localStorage.getItem('tasks');
   console.log(tasks);
-
-  if (!tasks) {
+// if there are no tasks, set tasks to an empty array and return out of the function
+  if (!savedTasks) {
     tasks = [];
     return false;
   }
@@ -251,4 +251,4 @@ pageContentEl.addEventListener("click", taskButtonHandler);
 // for changing the status
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
 
-loadTasks ();
+loadTasks();
